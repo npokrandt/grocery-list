@@ -4,7 +4,9 @@
   "description": "This website will make grocery shopping easy! You can even configure it around your planned meals for the week!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sql": "mysql -u root -p",
+    "dev": "npx nodemon server"
   },
   "keywords": [],
   "author": "",
