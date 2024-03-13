@@ -1,24 +1,11 @@
-//ideas
 
-//aisleOrder
-//name
-//grocId
+//each order has many items; each item has one order
+//each recipe has many items; each item has one or more recipes
 
-//groceryItem
-//id int
-//name string
-//aisleId
-//price float?
-//needMore bool
+//one-to-many
+//many-to-many
 
-//many to many?
-
-//recipe
-//id int
-//name string
-//ingredients [string or id]
-
-//meal
+//meal - not necessary for mvp
 
 //id
 //name

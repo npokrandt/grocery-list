@@ -1,1 +1,27 @@
-//this is the main server file!
+const path = require('path')
+const express = require('express')
+const exphbs = require('express-handlebars')
+const routes = require('./controllers')
+
+const sequelize = require('./config/connection')
+
+const app = express()
+const PORT =  process.env.PORT || '3001'
+
+const hbs = exphbs.create()
+
+//might add session and user auth at some point, but for now it is a simple website
+
+app.engine('handlebars', hbs.engine)
+
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+app.use(routes)
+
+sequelize.sync({force: false}).then(() => {
+    app.listen(PORT, () => {
+        console.log(`app listening on port ${PORT}`)
+    })
+})
