@@ -1,8 +1,33 @@
 //the main table. these will be linked to the order table (for ordering) and whatever recipes they are in
+const {DataTypes, Model} = require('sequelize')
+const sequelize = require('../config/connection')
 
-//groceryItem
-//id int
-//name string
+class Item extends Model{}
+
+Item.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        price: {
+            type: DataTypes.FLOAT({decimals: 2}),
+        },
+        needMore: {
+            type: DataTypes.BOOLEAN,
+        }
+
+    }
+)
+
+module.exports = Item
+
 //aisleId
-//price float?
-//needMore bool
+//recipeId?
