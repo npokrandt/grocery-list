@@ -20,10 +20,17 @@ Item.init(
         price: {
             type: DataTypes.FLOAT({decimals: 2}),
         },
-        needMore: {
+        needMore: { 
             type: DataTypes.BOOLEAN,
         }
 
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: "item"
     }
 )
 

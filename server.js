@@ -13,6 +13,7 @@ const hbs = exphbs.create()
 //might add session and user auth at some point, but for now it is a simple website
 
 app.engine('handlebars', hbs.engine)
+app.set('view engine', 'handlebars')
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
@@ -24,4 +25,4 @@ sequelize.sync({force: false}).then(() => {
     app.listen(PORT, () => {
         console.log(`app listening on port ${PORT}`)
     })
-})
+}) 
