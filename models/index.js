@@ -1,12 +1,6 @@
 const Item = require('./Item')
-
-//each order has many items; each item has one order
-//each recipe has many items; each item has one or more recipes
-
-
- 
-//one-to-many
-//many-to-many
+const Aisle = require('./Aisle')
+const Recipe = require('./Recipe')
 
 //meal - not necessary for mvp
 
@@ -14,4 +8,17 @@ const Item = require('./Item')
 //name
 //dishes [recipe or groceryItem id]
 
-module.exports = {Item}
+//each ailse has one or many items; each item has one aisle
+Aisle.hasMany(Item, {foreignKey: 'aisle_id'})
+
+Item.belongsTo(Aisle, {foreignKey: 'aisle_id'})
+//each recipe has many items; each item has one or more recipes
+ 
+//one-to-many
+//many-to-many
+//pretty confident in this, but not positive
+Recipe.belongsToMany(Item, {through: RecipeItem})
+Item.belongsToMany(Recipe, {through: RecipeItem})
+
+
+module.exports = {Item, Aisle, Recipe}

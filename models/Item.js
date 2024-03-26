@@ -22,6 +22,15 @@ Item.init(
         },
         needMore: { 
             type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        aisle_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'Aisle',
+                key: 'id'
+            }
         }
 
     },
